@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /assets/qa.html
+Disallow: /assets/grab.html
+
+Sitemap: https://provaroplius.lt/sitemap.xml

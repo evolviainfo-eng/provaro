@@ -1,0 +1,13 @@
+fs-server.js
+.claude/
+.DS_Store
+assets/raw/
+assets/frames/
+assets/qa.html
+assets/grab.html
+assets/fonttest.html
+assets/og.html
+assets/sheet_*.jpg
+assets/hero_grid.jpg
+assets/logo-preview.png
+assets/fonttest.png
