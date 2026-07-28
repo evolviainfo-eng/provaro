@@ -78,50 +78,6 @@
     }, 400);
   }
 
-  /* ── THE WIPE — scroll scrubs the sofa clean ───────── */
-  var wipe = document.querySelector('.wipe');
-  var wipePo = wipe && wipe.querySelector('.wipe__po');
-  var wipeEdge = wipe && wipe.querySelector('.wipe__edge');
-  var tagPries = wipe && wipe.querySelector('.wipe__tag--pries');
-  var phone = window.matchMedia('(max-width: 880px)');
-
-  function scrub() {
-    if (!wipe) return;
-    if (phone.matches || reduce) { wipePo.style.clipPath = ''; wipeEdge.style.left = ''; if (tagPries) tagPries.style.opacity = ''; return; }
-    var vh = window.innerHeight || 800;
-    var r = wipe.getBoundingClientRect();
-    var total = wipe.offsetHeight - vh;
-    if (total <= 0) return;
-    var p = Math.min(1, Math.max(0, -r.top / total));
-    /* ease the middle so the edge lingers where the eye compares */
-    var x = (1 - p) * 100;
-    wipePo.style.clipPath = 'inset(0 0 0 ' + x.toFixed(2) + '%)';
-    wipeEdge.style.left = x.toFixed(2) + '%';
-    /* once the frame is fully cleaned the "before" label is no longer true */
-    if (tagPries) tagPries.style.opacity = Math.max(0, Math.min(1, (0.94 - p) / 0.18)).toFixed(3);
-  }
-
-  var playedOnce = false;
-  function wipeMobile() {
-    if (!wipe || !phone.matches || playedOnce) return;
-    var r = wipe.getBoundingClientRect();
-    var vh = window.innerHeight || 800;
-    if (r.top < vh * 0.6 && r.bottom > 0) {
-      playedOnce = true;
-      if (reduce) { wipePo.style.clipPath = 'inset(0 0 0 0)'; if (wipeEdge) wipeEdge.style.opacity = 0; }
-      else wipe.classList.add('is-played');
-    }
-  }
-  /* No-JS fallback is the CSS 50/50 split — honest and readable. */
-
-  /* Tap replays the mobile wipe */
-  if (wipe) wipe.addEventListener('click', function () {
-    if (!phone.matches || reduce) return;
-    wipe.classList.remove('is-played');
-    void wipe.offsetWidth;
-    wipe.classList.add('is-played');
-  });
-
   /* ── nav + callbar frame loop ──────────────────────── */
   var nav = document.getElementById('nav');
   var callbar = document.getElementById('callbar');
@@ -136,8 +92,6 @@
       callbar.classList.toggle('is-on', on);
       callbar.setAttribute('aria-hidden', on ? 'false' : 'true');
     }
-    scrub();
-    wipeMobile();
   }
   var ticking = false;
   function onScroll() {

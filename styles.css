@@ -2,7 +2,7 @@
    PROVARO+ — Klaipėda
    Luxurious black. One typeface, 6 sizes, 1 accent.
    Motion: deep and unhurried — 2 curves, choreographed reveals,
-   one scroll-scrubbed wipe (the trade itself: cleaning).
+   photography-led — no gimmicks; the work carries the page.
    ══════════════════════════════════════════════════════════ */
 
 :root{
@@ -157,44 +157,19 @@ html.js .hero .msk.is-in .ln:nth-child(2)>span{transition-delay:540ms}
   background:rgba(244,243,239,.35);transition:background var(--d1) var(--e1)}
 .tel-inline:hover::after{background:var(--paper)}
 
-/* ── THE WIPE — scroll scrubs the sofa clean ──────────── */
-.wipe{position:relative;height:300vh}
-.wipe__stage{position:sticky;top:0;height:100svh;overflow:hidden}
-.wipe__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
-.wipe__po{clip-path:inset(0 0 0 50%)}   /* no-JS fallback: honest split view */
-.wipe__edge{position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(244,243,239,.6);
-  box-shadow:0 0 22px rgba(0,0,0,.55)}
-.wipe__tag{position:absolute;top:calc(var(--nav-h) + 8px);
-  font-size:var(--t6);letter-spacing:.18em;text-transform:uppercase;font-weight:500;
-  background:rgba(7,7,9,.72);padding:10px 16px}
-.wipe__tag--pries{left:var(--gut);color:var(--dim);transition:opacity var(--d2) linear}
-.wipe__tag--po{right:var(--gut);color:var(--accent)}
-.wipe__cap{position:absolute;left:0;right:0;bottom:0;
-  background:linear-gradient(to top, rgba(4,4,6,.94) 0%, rgba(4,4,6,.72) 42%, rgba(4,4,6,0) 100%);
-  padding:var(--s8) var(--gut) var(--s6)}
-.wipe__cap-in{max-width:1400px;margin:0 auto;padding-inline:0;
-  display:flex;justify-content:space-between;align-items:baseline;gap:var(--s4);flex-wrap:wrap}
-.wipe__cap h2{font-size:var(--t2)}
-.wipe__cap p{font-size:var(--t5);color:var(--dim)}
-
-/* ── proof pairs ──────────────────────────────────────── */
-.dip{margin-bottom:var(--s8)}
-.dip:last-of-type{margin-bottom:0}
-.dip__bar{display:grid;grid-template-columns:1fr 1fr;gap:2px;
-  padding-bottom:var(--s2);margin-bottom:var(--s2);border-bottom:1px solid var(--line);
-  font-size:var(--t6);letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--dim)}
-.dip__bar span:last-child{color:var(--accent)}
-.dip__pair{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.dip__half{position:relative;overflow:hidden}
-.dip__half img{width:100%;transition:transform 800ms var(--e1)}
-.dip__half:hover img{transform:scale(1.03)}
-.dip__tag{position:absolute;top:0;left:0;background:rgba(7,7,9,.85);color:var(--paper);
-  padding:11px 18px;font-size:var(--t6);letter-spacing:.18em;text-transform:uppercase;font-weight:500;
-  display:none}
-.dip__half--po .dip__tag{color:var(--accent)}
-.dip figcaption{margin-top:var(--s2);font-size:var(--t5);color:var(--dim);
-  display:flex;justify-content:space-between;gap:var(--s4)}
-.dip figcaption span+span{color:var(--faint);font-variant-numeric:tabular-nums}
+/* ── DARBAI — editorial register of finished work ────── */
+.gal__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s4)}
+.gal__item{margin:0}
+.gal__item--a{grid-column:1/8}
+.gal__item--b{grid-column:9/13;margin-top:var(--s9)}
+.gal__item--c{grid-column:5/11;margin-top:var(--s7)}
+.gal__media{overflow:hidden}
+.gal__media img{width:100%;aspect-ratio:3/4;object-fit:cover;
+  transition:transform 800ms var(--e1)}
+.gal__item:hover .gal__media img{transform:scale(1.03)}
+.gal__item figcaption{margin-top:var(--s2);padding-top:var(--s2);border-top:1px solid var(--line);
+  font-size:var(--t5);color:var(--dim);display:flex;justify-content:space-between;gap:var(--s4)}
+.gal__item figcaption span+span{color:var(--faint);white-space:nowrap}
 
 /* ── method ───────────────────────────────────────────── */
 .method{background:var(--surface);border-block:1px solid var(--line)}
@@ -332,21 +307,10 @@ html.js .hero .msk.is-in .ln:nth-child(2)>span{transition-delay:540ms}
   .hero__act .tel-inline{align-self:flex-start}
   .hero__meta{margin-top:var(--s4);padding-top:var(--s3);gap:10px var(--s3);font-size:var(--t6)}
 
-  .wipe{height:auto}
-  .wipe__stage{position:relative;height:78svh}
-  .wipe__po{clip-path:inset(0 0 0 50%);transition:clip-path 1600ms var(--e2)}
-  .wipe.is-played .wipe__po{clip-path:inset(0 0 0 0)}
-  .wipe__edge{transition:left 1600ms var(--e2),opacity 400ms linear 1300ms}
-  .wipe.is-played .wipe__edge{left:0;opacity:0}
-  .wipe.is-played .wipe__tag--pries{opacity:0;transition:opacity 400ms linear 1100ms}
-  .wipe__cap{padding:var(--s7) var(--gut) var(--s3)}
+  .gal__grid{grid-template-columns:1fr;gap:var(--s6)}
+  .gal__item--a,.gal__item--b,.gal__item--c{grid-column:1;margin-top:0}
+  .gal__item figcaption{flex-direction:column;gap:4px}
 
-  .dip__bar{display:none}
-  .dip__tag{display:block}
-  .dip__pair{grid-template-columns:1fr;gap:8px}
-  .dip figcaption{flex-direction:column;gap:4px}
-  .dip{margin-bottom:var(--s7)}
-  .dip figcaption{flex-direction:column;gap:6px}
 
   .method__in,.faq__in,.contact__in{grid-template-columns:1fr;gap:var(--s6)}
   .method__aside figure,.aside-line{max-width:none}
