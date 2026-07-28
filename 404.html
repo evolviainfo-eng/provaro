@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Puslapis nerastas — PROVARO+</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#070709">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+  .lost{min-height:100svh;display:flex;align-items:center}
+  .lost__in{padding-block:var(--s7)}
+  .lost h1{max-width:16ch;margin-block:var(--s4) var(--s4)}
+  .lost p{font-size:var(--t3);line-height:1.42;color:var(--dim);max-width:38ch;margin-bottom:var(--s6)}
+  .lost__act{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap}
+  @media (max-width:880px){ .lost__act{flex-direction:column;align-items:stretch}
+    .lost__act .btn{text-align:center} .lost__act .tel-inline{align-self:flex-start} }
+</style>
+</head>
+<body>
+<header class="nav is-stuck" id="nav">
+  <div class="nav__in">
+    <a class="nav__logo" href="/" aria-label="PROVARO+ — į pradžią">
+      <img src="/assets/logo-white.png" alt="PROVARO+" width="685" height="116">
+    </a>
+    <a class="nav__tel" href="tel:+37065233550" style="margin-left:auto">+370 652 33550</a>
+  </div>
+</header>
+
+<main class="lost">
+  <div class="wrap lost__in">
+    <p class="lbl">404</p>
+    <h1>Šio puslapio nėra.<br>Bet švara — yra.</h1>
+    <p>Nuoroda pasenusi arba adrese įsivėlė klaida. Grįžkite į pradžią arba tiesiog paskambinkite — atsakysime greičiau, nei ieškosite.</p>
+    <div class="lost__act">
+      <a class="btn" href="/">Grįžti į pradžią</a>
+      <a class="tel-inline" href="tel:+37065233550">+370 652 33550</a>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__bar">
+    <p>© 2026 PROVARO+ · Valymo paslaugos</p>
+    <p>Klaipėda · Vakarų regionas</p>
+  </div>
+</footer>
+</body>
+</html>

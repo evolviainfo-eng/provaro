@@ -78,6 +78,19 @@
     }, 400);
   }
 
+  /* ── nav reflects where you are ─────────────────────── */
+  var navLinks = [].slice.call(document.querySelectorAll('.nav__links a[href^="#"]'));
+  var targets = navLinks.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+
+  function spy() {
+    var line = (window.scrollY || 0) + (window.innerHeight || 800) * 0.34;
+    var best = -1;
+    targets.forEach(function (t, i) {
+      if (t && t.offsetTop <= line) best = i;
+    });
+    navLinks.forEach(function (a, i) { a.classList.toggle('is-here', i === best); });
+  }
+
   /* ── nav + callbar frame loop ──────────────────────── */
   var nav = document.getElementById('nav');
   var callbar = document.getElementById('callbar');
@@ -92,6 +105,7 @@
       callbar.classList.toggle('is-on', on);
       callbar.setAttribute('aria-hidden', on ? 'false' : 'true');
     }
+    spy();
   }
   var ticking = false;
   function onScroll() {
@@ -105,22 +119,59 @@
   setInterval(frame, 250);
   frame();
 
-  /* ── inquiry form ──────────────────────────────────── */
+  /* ── structured inquiry ────────────────────────────── */
   var form = document.getElementById('uzklausa');
   if (!form) return;
   var sent = document.getElementById('sent');
   var body = document.getElementById('sent-body');
+  var summaryEl = document.getElementById('summary-t');
+  var dydis = document.getElementById('f-dydis');
+  var dydisLabel = document.getElementById('l-dydis');
 
   var FIELDS = [
     { id: 'f-vardas', err: 'e-vardas' },
-    { id: 'f-kont', err: 'e-kont' },
-    { id: 'f-zinute', err: 'e-zinute' }
+    { id: 'f-kont', err: 'e-kont' }
   ];
+
+  function picked(name) {
+    var el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
+  }
+
+  /* the unit follows the object — furniture is counted, rooms are measured */
+  function unitFor(tipas) {
+    return tipas === 'Minkšti baldai arba čiužinys'
+      ? { label: 'Kiek vienetų', ph: 'pvz. sofa + 2 foteliai' }
+      : { label: 'Plotas, m²', ph: 'pvz. 62' };
+  }
+
+  function summarise() {
+    var tipas = picked('tipas');
+    var u = unitFor(tipas);
+    dydisLabel.textContent = u.label;
+    dydis.placeholder = u.ph;
+
+    var size = dydis.value.trim();
+    var city = document.getElementById('f-miestas').value;
+    var when = picked('kada');
+
+    var parts = [tipas];
+    if (size) parts.push(tipas === 'Minkšti baldai arba čiužinys' ? size : size + ' m²');
+    parts.push(city);
+    parts.push(when.toLowerCase());
+    var line = parts.join(' · ');
+    if (summaryEl) summaryEl.textContent = line;
+    return line;
+  }
+
+  form.addEventListener('change', summarise);
+  form.addEventListener('input', summarise);
+  summarise();
 
   function validate(f) {
     var input = document.getElementById(f.id);
     var msg = document.getElementById(f.err);
-    var ok = input.value.trim().length >= (f.id === 'f-zinute' ? 6 : 2);
+    var ok = input.value.trim().length >= 2;
     input.closest('.field').classList.toggle('is-bad', !ok);
     msg.hidden = ok;
     input.setAttribute('aria-invalid', ok ? 'false' : 'true');
@@ -145,11 +196,17 @@
     });
     if (!ok) { first.focus(); return; }
 
-    var vardas = document.getElementById('f-vardas').value.trim();
-    var kont = document.getElementById('f-kont').value.trim();
-    var zinute = document.getElementById('f-zinute').value.trim();
-
-    var text = 'Vardas: ' + vardas + '\nKontaktas: ' + kont + '\n\n' + zinute;
+    var tipas = picked('tipas');
+    var size = dydis.value.trim();
+    var text =
+      'Ką valyti: ' + tipas + '\n' +
+      (size ? (tipas === 'Minkšti baldai arba čiužinys' ? 'Kiekis: ' : 'Plotas: ') + size + '\n' : '') +
+      'Miestas: ' + document.getElementById('f-miestas').value + '\n' +
+      'Kada: ' + picked('kada') + '\n' +
+      'Vardas: ' + document.getElementById('f-vardas').value.trim() + '\n' +
+      'Kontaktas: ' + document.getElementById('f-kont').value.trim();
+    var extra = document.getElementById('f-zinute').value.trim();
+    if (extra) text += '\n\n' + extra;
 
     body.textContent = text;
     form.hidden = true;
@@ -157,7 +214,7 @@
     sent.focus();
 
     window.location.href = 'mailto:provaroplius@gmail.com'
-      + '?subject=' + encodeURIComponent('Užklausa dėl valymo — ' + vardas)
+      + '?subject=' + encodeURIComponent('Užklausa dėl valymo — ' + tipas)
       + '&body=' + encodeURIComponent(text);
   });
 

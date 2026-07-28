@@ -24,18 +24,54 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "additionalType": "https://schema.org/ProfessionalService",
-  "name": "PROVARO+",
-  "alternateName": "Provaro Plius",
-  "description": "Profesionalios valymo paslaugos namams ir verslui: namų, postatybinis ir pramoninis valymas, ofisų priežiūra, minkštų baldų ir čiužinių giluminis valymas.",
-  "url": "https://provaroplius.lt/",
-  "telephone": "+37065233550",
-  "email": "provaroplius@gmail.com",
-  "image": "https://provaroplius.lt/og.jpg",
-  "areaServed": { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 55.7033, "longitude": 21.1443 }, "geoRadius": 100000 },
-  "address": { "@type": "PostalAddress", "addressLocality": "Klaipėda", "addressCountry": "LT" },
-  "sameAs": ["https://www.facebook.com/p/Provaro-61579996461359/", "https://www.instagram.com/provaroplius/"]
+  "@graph": [
+    {
+      "@type": "HomeAndConstructionBusiness",
+      "@id": "https://provaroplius.lt/#business",
+      "additionalType": "https://schema.org/ProfessionalService",
+      "name": "PROVARO+",
+      "alternateName": "Provaro Plius",
+      "description": "Profesionalios valymo paslaugos namams ir verslui: namų, postatybinis ir pramoninis valymas, ofisų priežiūra, minkštų baldų ir čiužinių giluminis valymas.",
+      "url": "https://provaroplius.lt/",
+      "telephone": "+37065233550",
+      "email": "provaroplius@gmail.com",
+      "image": "https://provaroplius.lt/og.jpg",
+      "priceRange": "$$",
+      "address": { "@type": "PostalAddress", "addressLocality": "Klaipėda", "addressRegion": "Klaipėdos apskritis", "addressCountry": "LT" },
+      "areaServed": [
+        { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 55.7033, "longitude": 21.1443 }, "geoRadius": 100000 },
+        { "@type": "City", "name": "Klaipėda" }, { "@type": "City", "name": "Palanga" },
+        { "@type": "City", "name": "Kretinga" }, { "@type": "City", "name": "Gargždai" },
+        { "@type": "City", "name": "Priekulė" }, { "@type": "City", "name": "Šilutė" },
+        { "@type": "City", "name": "Plungė" }, { "@type": "City", "name": "Salantai" },
+        { "@type": "City", "name": "Skuodas" }, { "@type": "City", "name": "Telšiai" },
+        { "@type": "City", "name": "Rietavas" }, { "@type": "City", "name": "Šilalė" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Valymo paslaugos",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Namų valymas", "description": "Butai ir namai: generalinis, reguliarus arba po nuomininkų." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Postatybinis valymas", "description": "Statybinės dulkės ir remonto likučiai po remonto." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pramoninis valymas", "description": "Gamybos ir sandėlio patalpos, dideli plotai." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ofisų priežiūra", "description": "Vienkartinė arba reguliari komercinių erdvių priežiūra." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Minkštų baldų ir čiužinių giluminis valymas", "description": "Sofos, foteliai, kėdės, čiužiniai — ekstrakcinis ir cheminis valymas." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Virtuvės ir buitinės technikos valymas", "description": "Orkaitės ir virtuvės paviršiai." } }
+        ]
+      },
+      "sameAs": ["https://www.facebook.com/p/Provaro-61579996461359/", "https://www.instagram.com/provaroplius/"]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://provaroplius.lt/#duk",
+      "mainEntity": [
+        { "@type": "Question", "name": "Kokioje teritorijoje dirbate?", "acceptedAnswer": { "@type": "Answer", "text": "Klaipėda ir visas Vakarų regionas — iki 100 km nuo miesto." } },
+        { "@type": "Question", "name": "Ar atvykstate su savo įranga?", "acceptedAnswer": { "@type": "Answer", "text": "Taip. Ekstrakcinė įranga ir profesionalios valymo priemonės — mūsų." } },
+        { "@type": "Question", "name": "Kaip sužinoti kainą?", "acceptedAnswer": { "@type": "Answer", "text": "Paskambinkite arba parašykite ir atsiųskite kelias erdvės nuotraukas. Kainą pasakome iš karto, be apžiūros vietoje." } },
+        { "@type": "Question", "name": "Ar valote tik minkštus baldus, be viso buto?", "acceptedAnswer": { "@type": "Answer", "text": "Taip. Sofos, foteliai, kėdės ir čiužiniai valomi kaip atskira paslauga." } }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -120,6 +156,20 @@
         <figcaption><span>Minkšto baldo giluminis valymas</span><span>2026 m. kovas</span></figcaption>
       </figure>
 
+      <figure class="dip dip--offset">
+        <div class="dip__bar" aria-hidden="true"><span>Prieš</span><span>Po</span></div>
+        <div class="dip__pair">
+          <div class="dip__half" data-bloom>
+            <img src="/assets/img/ciuzinys-pries.webp" alt="Čiužinys prieš giluminį valymą — audinys pilkas, spalva prislopusi" width="1440" height="1080" loading="lazy" decoding="async">
+            <span class="dip__tag" aria-hidden="true">Prieš</span>
+          </div>
+          <div class="dip__half dip__half--po" data-bloom>
+            <img src="/assets/img/ciuzinys-po.webp" alt="Tas pats čiužinys po giluminio valymo — audinys sodriai mėlynas" width="1440" height="1080" loading="lazy" decoding="async">
+            <span class="dip__tag" aria-hidden="true">Po</span>
+          </div>
+        </div>
+        <figcaption><span>Čiužinio giluminis ekstrakcinis valymas</span><span>2026 m. balandis</span></figcaption>
+      </figure>
     </div>
   </section>
 
@@ -127,7 +177,7 @@
   <section class="sec method">
     <div class="wrap method__in">
       <div class="method__text">
-        <p class="lbl" data-rise>Metodas</p>
+        <p class="lbl">Metodas</p>
         <h2 data-rise>Jei atrodo švaru —<br>dar nereiškia, kad švaru.</h2>
         <p class="lead" data-rise>Paviršių nušluostyti galima greitai. Mes einame giliau — ten, kur dulkės, riebalai ir drėgmė susigeria į audinį, siūles ir tarpus.</p>
         <ol class="steps" data-rise>
@@ -150,7 +200,7 @@
   <section class="sec services" id="paslaugos">
     <div class="wrap">
       <div class="sec__head">
-        <p class="lbl" data-rise>Paslaugos</p>
+        <p class="lbl">Paslaugos</p>
         <h2 data-rise>Nuo buto po nuomininkų<br>iki gamybos patalpų.</h2>
       </div>
       <ul class="srv">
@@ -161,7 +211,33 @@
         <li data-rise><span class="srv__n">05</span><h3>Minkšti baldai ir čiužiniai</h3><p>Sofos, foteliai, kėdės, čiužiniai. Giluminis ekstrakcinis valymas — tai, ką matote nuotraukose viršuje.</p></li>
         <li data-rise><span class="srv__n">06</span><h3>Virtuvė ir buitinė technika</h3><p>Orkaitės, virtuvės paviršiai ir tos vietos, kurias kasdien aplenkia šluostė.</p></li>
       </ul>
-      <p class="note" data-rise>Kaina priklauso nuo ploto ir būklės. Pasakome iš karto — telefonu arba pagal kelias jūsų atsiųstas nuotraukas.</p>
+      <div class="price" data-rise>
+        <p class="lbl">Kaina</p>
+        <p class="price__lead">Fiksuoto kainoraščio neturime, nes 60&nbsp;m² butas po nuomininkų ir 60&nbsp;m² butas po statybų — du skirtingi darbai. Kainą pasakome iš karto, kai žinome keturis dalykus:</p>
+        <ul class="price__list">
+          <li><span>01</span>Plotas arba baldų kiekis</li>
+          <li><span>02</span>Erdvės būklė — kasdienė tvarka ar po statybų</li>
+          <li><span>03</span>Paviršiai ir audiniai, kuriuos reikia valyti</li>
+          <li><span>04</span>Kada reikia atlikti</li>
+        </ul>
+        <p class="price__foot">Užpildykite užklausą žemiau arba tiesiog paskambinkite — atsiųskite kelias nuotraukas ir kainą pasakysime be apžiūros vietoje.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COVERAGE ═══ -->
+  <section class="sec area" id="regionas">
+    <div class="wrap area__in">
+      <div class="sec__head sec__head--side">
+        <p class="lbl">Kur dirbame</p>
+        <h2 data-rise>Klaipėda ir visas<br>Vakarų regionas.</h2>
+        <p class="area__lead" data-rise>Bazuojamės Klaipėdoje ir važiuojame iki 100&nbsp;km spinduliu. Jei jūsų miestas sąraše nenurodytas, vis tiek paklauskite — dažniausiai atvažiuojame.</p>
+      </div>
+      <ul class="area__list" data-rise>
+        <li>Klaipėda</li><li>Palanga</li><li>Kretinga</li><li>Gargždai</li>
+        <li>Priekulė</li><li>Šilutė</li><li>Plungė</li><li>Salantai</li>
+        <li>Skuodas</li><li>Telšiai</li><li>Rietavas</li><li>Šilalė</li>
+      </ul>
     </div>
   </section>
 
@@ -169,7 +245,7 @@
   <section class="sec faq" id="duk">
     <div class="wrap faq__in">
       <div class="sec__head sec__head--side">
-        <p class="lbl" data-rise>D.U.K.</p>
+        <p class="lbl">D.U.K.</p>
         <h2 data-rise>Trumpai<br>ir aiškiai.</h2>
       </div>
       <dl class="qa" data-rise>
@@ -189,28 +265,75 @@
   <section class="sec contact" id="kontaktai">
     <div class="wrap contact__in">
       <div class="contact__form">
-        <p class="lbl" data-rise>Užklausa</p>
+        <p class="lbl">Užklausa</p>
         <h2 data-rise>Pasakykite,<br>ką reikia išvalyti.</h2>
         <a class="tel-hero" href="tel:+37065233550" data-rise>+370 652 33550</a>
         <form id="uzklausa" novalidate>
-          <div class="field">
-            <label for="f-vardas">Vardas</label>
-            <input id="f-vardas" name="vardas" type="text" autocomplete="name" required>
-            <p class="err" id="e-vardas" hidden>Įrašykite vardą, kad žinotume, kaip kreiptis.</p>
+          <fieldset class="pick">
+            <legend>Ką reikia išvalyti</legend>
+            <div class="pick__row">
+              <label><input type="radio" name="tipas" value="Butas arba namas" checked><span>Butas arba namas</span></label>
+              <label><input type="radio" name="tipas" value="Ofisas arba komercinė erdvė"><span>Ofisas, komercinė erdvė</span></label>
+              <label><input type="radio" name="tipas" value="Patalpos po statybų"><span>Po statybų</span></label>
+              <label><input type="radio" name="tipas" value="Pramoninė patalpa"><span>Pramoninė patalpa</span></label>
+              <label><input type="radio" name="tipas" value="Minkšti baldai arba čiužinys"><span>Minkšti baldai, čiužinys</span></label>
+            </div>
+          </fieldset>
+
+          <div class="two">
+            <div class="field">
+              <label for="f-dydis"><span id="l-dydis">Plotas, m²</span></label>
+              <input id="f-dydis" name="dydis" type="text" inputmode="numeric" placeholder="pvz. 62">
+            </div>
+            <div class="field">
+              <label for="f-miestas">Miestas</label>
+              <select id="f-miestas" name="miestas">
+                <option>Klaipėda</option><option>Palanga</option><option>Kretinga</option>
+                <option>Gargždai</option><option>Priekulė</option><option>Šilutė</option>
+                <option>Plungė</option><option>Salantai</option><option>Skuodas</option>
+                <option>Telšiai</option><option>Rietavas</option><option>Šilalė</option>
+                <option>Kita vietovė</option>
+              </select>
+            </div>
           </div>
-          <div class="field">
-            <label for="f-kont">Telefonas arba el. paštas</label>
-            <input id="f-kont" name="kontaktas" type="text" inputmode="tel" autocomplete="tel" required>
-            <p class="err" id="e-kont" hidden>Palikite numerį arba el. paštą — kitaip negalėsime atsakyti.</p>
+
+          <fieldset class="pick pick--tight">
+            <legend>Kada</legend>
+            <div class="pick__row">
+              <label><input type="radio" name="kada" value="Kuo greičiau" checked><span>Kuo greičiau</span></label>
+              <label><input type="radio" name="kada" value="Šią savaitę"><span>Šią savaitę</span></label>
+              <label><input type="radio" name="kada" value="Kitą savaitę ar vėliau"><span>Kitą savaitę ar vėliau</span></label>
+              <label><input type="radio" name="kada" value="Dar tikslinu"><span>Dar tikslinu</span></label>
+            </div>
+          </fieldset>
+
+          <div class="two">
+            <div class="field">
+              <label for="f-vardas">Vardas</label>
+              <input id="f-vardas" name="vardas" type="text" autocomplete="name" required>
+              <p class="err" id="e-vardas" hidden>Įrašykite vardą, kad žinotume, kaip kreiptis.</p>
+            </div>
+            <div class="field">
+              <label for="f-kont">Telefonas arba el. paštas</label>
+              <input id="f-kont" name="kontaktas" type="text" inputmode="tel" autocomplete="tel" required>
+              <p class="err" id="e-kont" hidden>Palikite numerį arba el. paštą — kitaip negalėsime atsakyti.</p>
+            </div>
           </div>
+
           <div class="field">
-            <label for="f-zinute">Ką reikia išvalyti</label>
-            <textarea id="f-zinute" name="zinute" rows="4" required placeholder="Pvz.: 62 m² butas po remonto, Klaipėda. Reikia postatybinio valymo."></textarea>
-            <p class="err" id="e-zinute" hidden>Trumpai aprašykite erdvę — plotas, miestas, kas svarbiausia.</p>
+            <label for="f-zinute">Ką dar turėtume žinoti <em>(nebūtina)</em></label>
+            <textarea id="f-zinute" name="zinute" rows="3" placeholder="Pvz.: sofa su dėmėmis nuo kavos, yra augintinis, penktas aukštas be lifto."></textarea>
           </div>
+
+          <div class="summary" aria-live="polite">
+            <p class="lbl">Jūsų užklausa</p>
+            <p class="summary__t" id="summary-t"></p>
+          </div>
+
           <button class="btn" type="submit">Gauti pasiūlymą</button>
           <p class="fineprint">Paspaudus atsidarys jūsų el. pašto programa su paruošta žinute. Skubu? Skambinkite <a href="tel:+37065233550">+370 652 33550</a>.</p>
         </form>
+
         <div class="sent" id="sent" hidden tabindex="-1">
           <p class="lbl">Paruošta</p>
           <p class="sent__t">Žinutė suformuota ir atidaryta jūsų el. pašto programoje. Jei ji neatsidarė, nukopijuokite tekstą arba tiesiog paskambinkite.</p>
@@ -241,8 +364,33 @@
 
 <footer class="foot">
   <div class="wrap foot__in">
-    <img class="foot__logo" src="/assets/logo-white.png" alt="PROVARO+" width="685" height="116" loading="lazy">
-    <p class="foot__c">© 2026 PROVARO+ · Valymo paslaugos · Klaipėda</p>
+    <div class="foot__brand">
+      <img class="foot__logo" src="/assets/logo-white.png" alt="PROVARO+" width="685" height="116" loading="lazy">
+      <p>Profesionalus giluminis valymas namams ir verslui. Klaipėda ir visas Vakarų regionas, iki 100&nbsp;km spinduliu.</p>
+    </div>
+    <nav class="foot__col" aria-label="Puslapio nuorodos">
+      <p class="lbl">Puslapis</p>
+      <a href="#darbai">Darbai</a>
+      <a href="#paslaugos">Paslaugos</a>
+      <a href="#regionas">Kur dirbame</a>
+      <a href="#duk">D.U.K.</a>
+      <a href="#kontaktai">Kontaktai</a>
+    </nav>
+    <div class="foot__col">
+      <p class="lbl">Kontaktai</p>
+      <a href="tel:+37065233550">+370 652 33550</a>
+      <a href="tel:+37064668069">+370 646 68069</a>
+      <a href="mailto:provaroplius@gmail.com">provaroplius@gmail.com</a>
+    </div>
+    <div class="foot__col">
+      <p class="lbl">Sekite</p>
+      <a href="https://www.instagram.com/provaroplius/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/p/Provaro-61579996461359/" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="wrap foot__bar">
+    <p>© 2026 PROVARO+ · Valymo paslaugos</p>
+    <p>Klaipėda · Vakarų regionas</p>
   </div>
 </footer>
 
