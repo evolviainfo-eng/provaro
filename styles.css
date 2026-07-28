@@ -157,20 +157,6 @@ html.js .hero .msk.is-in .ln:nth-child(2)>span{transition-delay:540ms}
   background:rgba(244,243,239,.35);transition:background var(--d1) var(--e1)}
 .tel-inline:hover::after{background:var(--paper)}
 
-/* ── DARBAI — editorial register of finished work ────── */
-.gal__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s4)}
-.gal__item{margin:0}
-.gal__item--a{grid-column:1/8}
-.gal__item--b{grid-column:9/13;margin-top:var(--s9)}
-.gal__item--c{grid-column:5/11;margin-top:var(--s7)}
-.gal__media{overflow:hidden}
-.gal__media img{width:100%;aspect-ratio:3/4;object-fit:cover;
-  transition:transform 800ms var(--e1)}
-.gal__item:hover .gal__media img{transform:scale(1.03)}
-.gal__item figcaption{margin-top:var(--s2);padding-top:var(--s2);border-top:1px solid var(--line);
-  font-size:var(--t5);color:var(--dim);display:flex;justify-content:space-between;gap:var(--s4)}
-.gal__item figcaption span+span{color:var(--faint);white-space:nowrap}
-
 /* ── method ───────────────────────────────────────────── */
 .method{background:var(--surface);border-block:1px solid var(--line)}
 .method__in{display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:var(--s8)}
@@ -189,17 +175,23 @@ html.js .hero .msk.is-in .ln:nth-child(2)>span{transition-delay:540ms}
 .aside-line{margin-top:var(--s3);max-width:360px;font-size:var(--t3);line-height:1.34;
   letter-spacing:-.018em;text-wrap:balance}
 
-/* ── services ─────────────────────────────────────────── */
+/* ── services — the index answers with real photographs ── */
+.srv-split{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:var(--s8);align-items:start}
 .srv{border-top:1px solid var(--line)}
-.srv li{display:grid;grid-template-columns:64px minmax(0,460px) minmax(0,1fr);gap:var(--s5);
-  padding-block:var(--s4);border-bottom:1px solid var(--line);align-items:baseline;
+.srv li{display:grid;grid-template-columns:64px 1fr;gap:var(--s4);
+  padding-block:var(--s4);border-bottom:1px solid var(--line);
   transition:background var(--d2) var(--e1)}
 .srv li:hover{background:rgba(244,243,239,.025)}
-.srv__n{font-size:var(--t5);color:var(--dim);font-variant-numeric:tabular-nums;letter-spacing:.1em;
+.srv__n{font-size:var(--t5);color:var(--dim);font-variant-numeric:tabular-nums;letter-spacing:.1em;padding-top:9px;
   transition:color var(--d1) var(--e1)}
 .srv li:hover .srv__n{color:var(--accent)}
 .srv h3{font-size:var(--t2);line-height:1.06;letter-spacing:-.032em;font-weight:500}
-.srv p{color:var(--dim);max-width:46ch;font-size:var(--t4)}
+.srv p{color:var(--dim);max-width:46ch;font-size:var(--t4);margin-top:10px}
+.srv__media{position:sticky;top:calc(var(--nav-h) + var(--s4))}
+.srv__frame{position:relative;aspect-ratio:3/4;overflow:hidden}
+.srv__plate{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 480ms linear}
+.srv__plate.is-on{opacity:1}
 .services .note{margin-top:var(--s5)}
 
 /* ── faq ──────────────────────────────────────────────── */
@@ -307,16 +299,17 @@ html.js .hero .msk.is-in .ln:nth-child(2)>span{transition-delay:540ms}
   .hero__act .tel-inline{align-self:flex-start}
   .hero__meta{margin-top:var(--s4);padding-top:var(--s3);gap:10px var(--s3);font-size:var(--t6)}
 
-  .gal__grid{grid-template-columns:1fr;gap:var(--s6)}
-  .gal__item--a,.gal__item--b,.gal__item--c{grid-column:1;margin-top:0}
-  .gal__item figcaption{flex-direction:column;gap:4px}
+  .srv-split{grid-template-columns:1fr}
+  .srv__media{display:none}
+  .services .sec__note{display:none}
 
 
   .method__in,.faq__in,.contact__in{grid-template-columns:1fr;gap:var(--s6)}
   .method__aside figure,.aside-line{max-width:none}
   .steps li{grid-template-columns:48px 1fr;gap:var(--s2)}
-  .srv li{padding-block:var(--s4);grid-template-columns:40px minmax(0,1fr)}
+  .srv li{padding-block:var(--s4);grid-template-columns:40px minmax(0,1fr);gap:var(--s2)}
   .srv h3{font-size:var(--t3);letter-spacing:-.02em}
+  .srv p{margin-top:6px}
   .sec__head{margin-bottom:var(--s6);grid-template-columns:1fr;gap:var(--s4)}
   .sec__note{grid-column:1}
   .tel-hero{font-size:var(--t2);white-space:nowrap}

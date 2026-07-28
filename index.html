@@ -48,8 +48,8 @@
       <img src="/assets/logo-white.png" alt="PROVARO+" width="685" height="116">
     </a>
     <nav class="nav__links" aria-label="Pagrindinis meniu">
-      <a href="#darbai">Darbai</a>
       <a href="#paslaugos">Paslaugos</a>
+      <a href="#metodas">Metodas</a>
       <a href="#duk">D.U.K.</a>
       <a href="#kontaktai">Kontaktai</a>
     </nav>
@@ -93,42 +93,9 @@
   </section>
 
 
-  <!-- ═══ DARBAI — an editorial register of finished work ═══ -->
-  <section class="sec gal" id="darbai">
-    <div class="wrap">
-      <div class="sec__head">
-        <p class="lbl" data-rise>Darbai</p>
-        <h2 class="msk" data-msk>
-          <span class="ln"><span>Rezultatas visada</span></span>
-          <span class="ln"><span>matosi gale.</span></span>
-        </h2>
-        <p class="sec__note">Visos nuotraukos — iš mūsų pačių objektų Klaipėdoje ir Vakarų regione. Jokio nuotraukų banko, jokių pavyzdžių iš interneto.</p>
-      </div>
-      <div class="gal__grid">
-        <figure class="gal__item gal__item--a">
-          <div class="gal__media" data-bloom>
-            <img src="/assets/img/g-sofa.webp" alt="Šviesi kampinė sofa po giluminio valymo — tolygiai švarus audinys, saulės šviesa" width="1440" height="1920" loading="lazy" decoding="async">
-          </div>
-          <figcaption><span>Minkštų baldų giluminis valymas</span><span>2026 m. kovas</span></figcaption>
-        </figure>
-        <figure class="gal__item gal__item--b">
-          <div class="gal__media" data-bloom>
-            <img src="/assets/img/g-team.webp" alt="Provaro+ komanda su firminiais marškinėliais valo patalpas po remonto" width="780" height="1040" loading="lazy" decoding="async">
-          </div>
-          <figcaption><span>Postatybinis valymas — komanda objekte</span><span>2026 m. sausis</span></figcaption>
-        </figure>
-        <figure class="gal__item gal__item--c">
-          <div class="gal__media" data-bloom>
-            <img src="/assets/img/g-kede.webp" alt="Sodriai mėlyna aksominė kėdė prie lango po cheminio valymo" width="1440" height="1920" loading="lazy" decoding="async">
-          </div>
-          <figcaption><span>Cheminis baldų valymas — spalva grįžo</span><span>2026 m. balandis</span></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
 
   <!-- ═══ METHOD ═══ -->
-  <section class="sec method">
+  <section class="sec method" id="metodas">
     <div class="wrap method__in">
       <div class="method__text">
         <p class="lbl" data-rise>Metodas</p>
@@ -150,21 +117,34 @@
     </div>
   </section>
 
-  <!-- ═══ SERVICES ═══ -->
+  <!-- ═══ SERVICES — the index is the page; real photos answer the rows ═══ -->
   <section class="sec services" id="paslaugos">
     <div class="wrap">
       <div class="sec__head">
         <p class="lbl" data-rise>Paslaugos</p>
-        <h2 data-rise>Nuo buto po nuomininkų<br>iki gamybos patalpų.</h2>
+        <h2 class="msk" data-msk>
+          <span class="ln"><span>Nuo buto po nuomininkų</span></span>
+          <span class="ln"><span>iki gamybos patalpų.</span></span>
+        </h2>
+        <p class="sec__note">Nuotraukos — iš mūsų pačių objektų Klaipėdoje ir Vakarų regione. Jokio nuotraukų banko.</p>
       </div>
-      <ul class="srv">
-        <li data-rise><span class="srv__n">01</span><h3>Namų valymas</h3><p>Butai ir namai: generalinis, reguliarus arba po nuomininkų — kai keičiasi žmonės, keičiasi ir erdvės pojūtis.</p></li>
-        <li data-rise><span class="srv__n">02</span><h3>Postatybinis valymas</h3><p>Statybinės dulkės ir remonto likučiai. Po remonto svarbiausia — ramiai pradėti gyventi, o ne skirti tam savaites.</p></li>
-        <li data-rise><span class="srv__n">03</span><h3>Pramoninis valymas</h3><p>Gamybos ir sandėlio patalpos, dideli plotai, sudėtingesni paviršiai.</p></li>
-        <li data-rise><span class="srv__n">04</span><h3>Ofisų priežiūra</h3><p>Vienkartinė arba reguliari komercinių erdvių priežiūra pagal jūsų grafiką — kad rytą erdvė jau būtų paruošta.</p></li>
-        <li data-rise><span class="srv__n">05</span><h3>Minkšti baldai ir čiužiniai</h3><p>Sofos, foteliai, kėdės, čiužiniai. Giluminis ekstrakcinis valymas — tai, ką matote nuotraukose viršuje.</p></li>
-        <li data-rise><span class="srv__n">06</span><h3>Virtuvė ir buitinė technika</h3><p>Orkaitės, virtuvės paviršiai ir tos vietos, kurias kasdien aplenkia šluostė.</p></li>
-      </ul>
+      <div class="srv-split">
+        <ul class="srv">
+          <li data-rise data-media="0"><span class="srv__n">01</span><div><h3>Namų valymas</h3><p>Butai ir namai: generalinis, reguliarus arba po nuomininkų — kai keičiasi žmonės, keičiasi ir erdvės pojūtis.</p></div></li>
+          <li data-rise data-media="1"><span class="srv__n">02</span><div><h3>Postatybinis valymas</h3><p>Statybinės dulkės ir remonto likučiai. Po remonto svarbiausia — ramiai pradėti gyventi, o ne skirti tam savaites.</p></div></li>
+          <li data-rise><span class="srv__n">03</span><div><h3>Pramoninis valymas</h3><p>Gamybos ir sandėlio patalpos, dideli plotai, sudėtingesni paviršiai.</p></div></li>
+          <li data-rise><span class="srv__n">04</span><div><h3>Ofisų priežiūra</h3><p>Vienkartinė arba reguliari komercinių erdvių priežiūra pagal jūsų grafiką — kad rytą erdvė jau būtų paruošta.</p></div></li>
+          <li data-rise data-media="2"><span class="srv__n">05</span><div><h3>Minkšti baldai ir čiužiniai</h3><p>Sofos, foteliai, kėdės, čiužiniai. Giluminis ekstrakcinis ir cheminis valymas.</p></div></li>
+          <li data-rise><span class="srv__n">06</span><div><h3>Virtuvė ir buitinė technika</h3><p>Orkaitės, virtuvės paviršiai ir tos vietos, kurias kasdien aplenkia šluostė.</p></div></li>
+        </ul>
+        <div class="srv__media" data-bloom aria-hidden="true">
+          <div class="srv__frame">
+            <img class="srv__plate is-on" src="/assets/img/g-sofa.webp" alt="" width="1440" height="1920" loading="lazy" decoding="async">
+            <img class="srv__plate" src="/assets/img/g-team.webp" alt="" width="780" height="1040" loading="lazy" decoding="async">
+            <img class="srv__plate" src="/assets/img/g-kede.webp" alt="" width="1440" height="1920" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
       <p class="note" data-rise>Kaina priklauso nuo ploto ir būklės. Pasakome iš karto — telefonu arba pagal kelias jūsų atsiųstas nuotraukas.</p>
     </div>
   </section>
