@@ -78,20 +78,6 @@
     }, 400);
   }
 
-  /* ── services media — the plate answers the hovered row ── */
-  var srvRows = [].slice.call(document.querySelectorAll('.srv li[data-media]'));
-  var plates = [].slice.call(document.querySelectorAll('.srv__plate'));
-  if (plates.length) {
-    var setPlate = function (k) {
-      plates.forEach(function (p, i) { p.classList.toggle('is-on', i === k); });
-    };
-    srvRows.forEach(function (r) {
-      r.addEventListener('mouseenter', function () {
-        setPlate(parseInt(r.getAttribute('data-media'), 10));
-      });
-    });
-  }
-
   /* ── nav + callbar frame loop ──────────────────────── */
   var nav = document.getElementById('nav');
   var callbar = document.getElementById('callbar');
